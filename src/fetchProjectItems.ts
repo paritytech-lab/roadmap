@@ -92,5 +92,5 @@ export async function fetchProjectItems(
 
 async function fetchProject(params: GetProjectsQueryVariables) {
   return await octokit.graphql<GetProjectsQuery>(print(GetProjectsDocument), params)
-    .catch(e => console.error)
+    .catch(console.error)
 }
