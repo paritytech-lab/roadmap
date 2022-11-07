@@ -9,7 +9,7 @@ export async function fetchProjectItems(
 ): Promise<ProjectDetails> {
   console.log(`Fetching projects`, params)
   // @ts-ignore
-  const project: GetProjectsQuery = await fetchProject(params)
+  const project: GetProjectsQuery = await fetchProject(params).catch(console.error)
 
   console.log(project)
 

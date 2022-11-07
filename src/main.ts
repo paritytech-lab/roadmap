@@ -22,4 +22,4 @@ const { projectId, org } = config;
     console.error(e)
   }
 
-})().catch(e => console.error)
+})().catch(console.error)
