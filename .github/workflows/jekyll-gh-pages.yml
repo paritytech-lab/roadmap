@@ -5,18 +5,22 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-    
+
   schedule:
   - cron: "15 * * * *"
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch: 
+  workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
+
+env:
+  GITHUB_ORG: mak-parity-org2
+  PROJECT_ID: 3
 
 # Allow one concurrent deployment
 concurrency:
@@ -34,12 +38,20 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16
+      - name: Yarn install
+        uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: install
+      - name: Generate Roadmap
+        uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: start
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./
+          source: ./dist
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
