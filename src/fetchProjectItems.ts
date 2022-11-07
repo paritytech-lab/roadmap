@@ -11,6 +11,8 @@ export async function fetchProjectItems(
   // @ts-ignore
   const project: GetProjectsQuery = await fetchProject(params)
 
+  console.log(project)
+
   if (project.organization?.projectV2?.items?.edges) {
     const { hasNextPage, endCursor } = project.organization?.projectV2?.items?.pageInfo
     const items: ProjectItem[] = [];
