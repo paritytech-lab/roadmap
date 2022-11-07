@@ -84,7 +84,7 @@ jobs:
         with:
           path: "./dist"
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        uses: JamesIves/github-pages-deploy-action@v4.3.4
         with:
           token: ${{ secrets.PAT }}
           folder: dist # The folder the action should deploy.
