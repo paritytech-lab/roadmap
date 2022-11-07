@@ -21,6 +21,7 @@ permissions:
 env:
   GITHUB_ORG: mak-parity-org2
   PROJECT_ID: 3
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 # Allow one concurrent deployment
 concurrency:
