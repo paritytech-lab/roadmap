@@ -61,6 +61,7 @@ jobs:
     permissions:
       contents: write
       pages: write
+      repository-projects: read
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
