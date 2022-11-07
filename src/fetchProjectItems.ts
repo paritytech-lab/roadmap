@@ -7,6 +7,7 @@ export async function fetchProjectItems(
   params: GetProjectsQueryVariables,
   recursiveCollection?: ProjectDetails
 ): Promise<ProjectDetails> {
+  console.log(`Fetching projects`, params)
   // @ts-ignore
   const project: GetProjectsQuery = await fetchProject(params)
 
