@@ -78,6 +78,10 @@ jobs:
         uses: borales/actions-yarn@v3.0.0
         with:
           cmd: start
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          path: "./dist"
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         # If you're changing the branch from main,
