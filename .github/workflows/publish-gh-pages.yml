@@ -77,27 +77,27 @@ jobs:
       - run: yarn start
       - run: ls -lsa dist
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: dist
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: dist
-          path: downloads/dist
-#      - name: Deploy 🚀
-#        uses: JamesIves/github-pages-deploy-action@v4
+#        uses: actions/upload-artifact@v3
 #        with:
-#          token: ${{ secrets.PAT }}
-#          folder: downloads # The folder the action should deploy.
+#          name: dist
+#          path: dist
+#      - name: Download artifacts
+#        uses: actions/download-artifact@v3
+#        with:
+#          name: dist
+#          path: downloads/dist
+##      - name: Deploy 🚀
+##        uses: JamesIves/github-pages-deploy-action@v4
+##        with:
+##          token: ${{ secrets.PAT }}
+##          folder: downloads # The folder the action should deploy.
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: './downloads/dist'
+          path: dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
