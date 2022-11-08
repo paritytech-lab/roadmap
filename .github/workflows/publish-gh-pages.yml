@@ -74,14 +74,6 @@ jobs:
       - run: yarn --immutable
       - run: yarn start
       - run: ls -lsa dist
-#      - name: Yarn install
-#        uses: borales/actions-yarn@v3.0.0
-#        with:
-#          cmd: install
-#      - name: Generate Roadmap
-#        uses: borales/actions-yarn@v3.0.0
-#        with:
-#          cmd: start
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -92,8 +84,18 @@ jobs:
         with:
           name: dist
           path: downloads/dist
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+#      - name: Deploy 🚀
+#        uses: JamesIves/github-pages-deploy-action@v4
+#        with:
+#          token: ${{ secrets.PAT }}
+#          folder: downloads # The folder the action should deploy.
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          token: ${{ secrets.PAT }}
-          folder: downloads # The folder the action should deploy.
+          # Upload entire repository
+          path: './downloads/dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
