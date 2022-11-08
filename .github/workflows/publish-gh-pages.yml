@@ -52,7 +52,7 @@ jobs:
       - run: yarn --immutable
       - name: Generate token
         id: generate_token
-        uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
+        uses: tibdex/github-app-token@v1
         with:
           app_id: ${{ secrets.ROADMAP_APP_ID }}
           private_key: ${{ secrets.ROADMAP_APP_PRIVATE_KEY }}
