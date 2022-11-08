@@ -20,7 +20,7 @@ permissions:
 env:
   GITHUB_ORG: mak-parity-org2
   PROJECT_ID: 3
-  ACCESS_TOKEN: ${{ secrets.PAT }}
+  ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 # Allow one concurrent deployment
 concurrency:
@@ -28,29 +28,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-#  # Build job
-#  build:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout
-#        uses: actions/checkout@v3
-#      - name: Install node
-#        uses: actions/setup-node@v1
-#        with:
-#          node-version: 16
-#      - name: Yarn install
-#        uses: borales/actions-yarn@v3.0.0
-#        with:
-#          cmd: install
-#      - name: Generate Roadmap
-#        uses: borales/actions-yarn@v3.0.0
-#        with:
-#          cmd: start
-#      - name: Setup Pages
-#        uses: actions/configure-pages@v2
-#      - name: Upload artifact
-#        uses: actions/upload-pages-artifact@v1
-
   # Deployment job
   deploy:
     environment:
@@ -76,21 +53,6 @@ jobs:
       - run: yarn --immutable
       - run: yarn start
       - run: ls -lsa dist
-#      - name: Upload artifacts
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: dist
-#          path: dist
-#      - name: Download artifacts
-#        uses: actions/download-artifact@v3
-#        with:
-#          name: dist
-#          path: downloads/dist
-##      - name: Deploy 🚀
-##        uses: JamesIves/github-pages-deploy-action@v4
-##        with:
-##          token: ${{ secrets.PAT }}
-##          folder: downloads # The folder the action should deploy.
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
