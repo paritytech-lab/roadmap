@@ -76,7 +76,7 @@ jobs:
       - run: yarn --immutable
       - run: yarn start
       - run: ls -lsa dist
-      - name: Upload artifacts
+#      - name: Upload artifacts
 #        uses: actions/upload-artifact@v3
 #        with:
 #          name: dist
