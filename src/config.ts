@@ -2,7 +2,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config()
 
-const auth = process.env.GITHUB_TOKEN
+const auth = process.env.ACCESS_TOKEN
 const org = process.env.GITHUB_ORG;
 const projectId: number = parseInt(process.env.PROJECT_ID!, 10);
 
