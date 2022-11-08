@@ -1,4 +1,4 @@
-import {GetProjectsQuery, IssueState, IssueStateReason} from "./generated/graphql-operations";
+import {IssueState, IssueStateReason} from "./generated/graphql-operations";
 
 export type ProjectDetails = {
   projectsUrl: string
