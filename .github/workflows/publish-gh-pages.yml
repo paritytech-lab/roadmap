@@ -20,7 +20,6 @@ permissions:
 env:
   GITHUB_ORG: mak-parity-org2
   PROJECT_ID: 3
-  ACCESS_TOKEN: ${{ secrets.PAT }}
 
 # Allow one concurrent deployment
 concurrency:
@@ -51,7 +50,16 @@ jobs:
         with:
           node-version: 16
       - run: yarn --immutable
-      - run: yarn start
+      - name: Generate token
+        id: generate_token
+        uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
+        with:
+          app_id: ${{ secrets.ROADMAP_APP_ID }}
+          private_key: ${{ secrets.ROADMAP_APP_PRIVATE_KEY }}
+      - name: Get project data
+        env:
+          ACCESS_TOKEN: ${{ steps.generate_token.outputs.token }}
+        run: yarn start
       - run: ls -lsa dist
       - name: Setup Pages
         uses: actions/configure-pages@v2
