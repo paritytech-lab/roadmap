@@ -62,6 +62,7 @@ jobs:
       contents: write
       pages: write
       repository-projects: read
+      id-token: write
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
