@@ -71,10 +71,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-        run: |
-          yarn --immutable
-          yarn start
-          ls -lsa
+      - run: yarn --immutable
+      - run: yarn start
+      - run: ls -lsa
 #      - name: Yarn install
 #        uses: borales/actions-yarn@v3.0.0
 #        with:
