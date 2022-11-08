@@ -1,9 +1,8 @@
 query getProjects($org: String!, $projectId: Int!, $first: Int!, $after: String) {
     organization(login: $org) {
-        projectsUrl
-        projectsResourcePath
-        name
         projectV2(number: $projectId) {
+            url
+            title
             items(first: $first, after: $after) {
                 totalCount
                 pageInfo {
