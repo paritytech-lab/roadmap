@@ -73,7 +73,7 @@ jobs:
           node-version: 16
       - run: yarn --immutable
       - run: yarn start
-      - run: ls -lsa
+      - run: ls -lsa dist
 #      - name: Yarn install
 #        uses: borales/actions-yarn@v3.0.0
 #        with:
@@ -85,9 +85,15 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          path: "./dist"
+          name: dist
+          path: dist
+      - name: Download artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: downloads/dist
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.PAT }}
-          folder: dist # The folder the action should deploy.
+          folder: downloads/dist # The folder the action should deploy.
