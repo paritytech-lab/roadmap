@@ -18,8 +18,8 @@ permissions:
   id-token: write
 
 env:
-  GITHUB_ORG: mak-parity-org2
-  PROJECT_ID: 3
+  GITHUB_ORG: paritytech-lab
+  PROJECT_ID: 1
 
 # Allow one concurrent deployment
 concurrency:
